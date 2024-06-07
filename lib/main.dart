@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const ProductNavigationApp());
+  runApp(ProductNavigationApp());
 }
 
 class ProductNavigationApp extends StatelessWidget {
-  const ProductNavigationApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,7 +12,7 @@ class ProductNavigationApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const ProductListScreen(),
+      home: ProductListScreen(),
     );
   }
 }
@@ -74,8 +72,6 @@ class ProductListScreen extends StatelessWidget {
     ),
   ];
 
-  const ProductListScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,8 +81,8 @@ class ProductListScreen extends StatelessWidget {
         flexibleSpace: SafeArea(
           child: Container(
             color: Colors.blue, // Set the header color
-            padding: const EdgeInsets.all(16.0),
-            child: const Center(
+            padding: EdgeInsets.all(16.0),
+            child: Center(
               child: Text(
                 'Product Navigation',
                 style: TextStyle(
@@ -112,7 +108,7 @@ class ProductListScreen extends StatelessWidget {
                   child: Center(
                     child: Text(
                       products[index].name,
-                      style: const TextStyle(fontSize: 24, color: Colors.white),
+                      style: TextStyle(fontSize: 24, color: Colors.white),
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -122,7 +118,7 @@ class ProductListScreen extends StatelessWidget {
                     title: Text(
                       products[index].name,
                       style:
-                          const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -165,7 +161,7 @@ class ProductListScreen extends StatelessWidget {
 class ProductDetailScreen extends StatelessWidget {
   final Product product;
 
-  const ProductDetailScreen({super.key, required this.product});
+  ProductDetailScreen({required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -174,7 +170,7 @@ class ProductDetailScreen extends StatelessWidget {
         title: Text(product.name),
         backgroundColor: Colors.blue, // Set the navigation bar color
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -192,18 +188,18 @@ class ProductDetailScreen extends StatelessWidget {
               child: Center(
                 child: Text(
                   product.name,
-                  style: const TextStyle(fontSize: 32, color: Colors.white),
+                  style: TextStyle(fontSize: 32, color: Colors.white),
                 ),
               ),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             Text(
               product.name,
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
             Text(product.description),
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
             Text('Price: ${product.price}'),
             Row(
               children: List.generate(
